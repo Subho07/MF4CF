@@ -145,8 +145,8 @@ for ii = startj:stopj
         val1 = (4*dop_f*k11_f*k44_f)./(k44_f^2 - (1 + 4*dop_f^2)*k11_f^2);
         val2 = abs(k14_f)./(k11_f);
        
-        theta_f = atand(val1); % separation for surface and dbl
-        tau_f = atand(val2); % separation for helix
+        theta_f = atand(val1);
+        tau_f = atand(val2);
         theta_val_f(ii,jj) = theta_f;
         tau_val_f(ii,jj) = tau_f;
          
