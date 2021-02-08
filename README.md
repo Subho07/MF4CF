@@ -20,5 +20,5 @@ All the power components are roll-invariant, non-negative and unambiguous.
 ## Up and running
 This is a `MATLAB` based code. Users will have to select `T3` matrix in `PolSARpro` format. The default window size is set to 7, which is defined under variable `wsi`. Please change this window size as per your requirement. 
 
-## References
+## Reference
 Dey, Subhadip; Bhattacharya, Avik; Frery, Alejandro C.; López-Martínez, Carlos (2020): A Model-free Four Component Scattering Power Decomposition for Polarimetric SAR Data. TechRxiv. Preprint. https://doi.org/10.36227/techrxiv.13298033.v1 
