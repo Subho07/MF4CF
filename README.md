@@ -1,4 +1,4 @@
-# Model free 4-component scattering power decomposition for full polarimetric SAR data
+# Model free 4-component scattering power decomposition for full polarimetric SAR data (MF4CF)
 [![DOI](https://img.shields.io/badge/DOI-https%3A%2F%2Fdoi.org%2F10.36227%2Ftechrxiv.13298033.v1-blue)](https://doi.org/10.36227/techrxiv.13298033.v1)
 
 ## General information
