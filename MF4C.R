@@ -194,11 +194,11 @@ val2 = abs(k14_f)/(k11_f)
 theta_f = atan(val1)*(180/pi) # separation for surface and dbl
 tau_f = atan(val2)*(180/pi) # separation for helix
 
-pc_f = dop_f*s0_f*(sin(2*tau_f)*(180/pi))
+pc_f = dop_f*s0_f*(sin(2*tau_f*(pi/180)))
 pv_f = (1-dop_f)*s0_f
 res_pow = s0_f - (pc_f + pv_f)
-ps_f = (res_pow/2)*(1+sin((2*theta_f)*(180/pi)))
-pd_f = (res_pow/2)*(1-sin((2*theta_f)*(180/pi)))
+ps_f = (res_pow/2)*(1+sin((2*theta_f*(pi/180))))
+pd_f = (res_pow/2)*(1-sin((2*theta_f*(pi/180))))
 
 #-----------------------------------------------------------------------------
 # Save in envi format
