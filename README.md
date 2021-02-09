@@ -29,7 +29,7 @@ This is a `MATLAB` based code. Users will have to select `T3` matrix in `PolSARp
 
 - Please use `MF4C.m` to compute the target characterization parameters and four scattering power components. `clustering_four_component.m` to perform unsupervised clustering.
 
-# N.B.
+## N.B.
 - An `R` code is also provided: `MF4C.R`. In this code also, the window size is 7. Pleasec change the window size in the variable `wsi`. 
 
 ## Reference
