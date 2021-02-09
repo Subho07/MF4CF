@@ -6,7 +6,7 @@ Target decomposition methods of polarimetric Synthetic Aperture Radar (PolSAR) d
 The degree of polarization is used to obtain the even-bounce, odd-bounce, and diffused scattering power components. Along with this, a measure of target scattering asymmetry is calculated, which is then suitably utilized to obtain the helicity power. 
 All the power components are roll-invariant, non-negative and unambiguous.
 
-## Function description
+## Function flowchart
 
 <p align="center">
   <img src="flow_chart_MF4CF.png" alt="Opening the plugin"/>
