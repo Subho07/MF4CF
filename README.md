@@ -27,7 +27,7 @@ An unsupervised clustering of different scattering mechanisms is provided in `cl
 ## Up and running
 This is a `MATLAB` based code. Users will have to select `T3` matrix in `PolSARpro` format. The default window size is set to 7, which is defined under variable `wsi`. Please change this window size as per your requirement. 
 
-- Please use `MF4C.m` for computing the target characterization parameters and four scattering power components. `clustering_four_component.m` to perform unsupervised clustering.
+- Please use `MF4C.m` to compute the target characterization parameters and four scattering power components. `clustering_four_component.m` to perform unsupervised clustering.
 
 ## Reference
 Dey, Subhadip; Bhattacharya, Avik; Frery, Alejandro C.; López-Martínez, Carlos (2020): A Model-free Four Component Scattering Power Decomposition for Polarimetric SAR Data. TechRxiv. Preprint. https://doi.org/10.36227/techrxiv.13298033.v1
