@@ -3,13 +3,13 @@
 
 ## General information
 Target decomposition methods of polarimetric Synthetic Aperture Radar (PolSAR) data explain scattering information from a target. In MF4CF, the non-conventional 3D Barakat degree of polarization is used to obtain the scattered electromagnetic wave's polarization state. 
-The degree of polarization is used to obtain the even-bounce, odd-bounce, and diffused scattering power components. Along with this, a measure of target scattering asymmetry is calculated, which is then suitably utilized to obtain the helicity power. 
+The 3D Barakat degree of polarization is used to obtain the even-bounce, odd-bounce, and diffused scattering power components. Along with this, a measure of target scattering asymmetry is calculated, which is then suitably utilized to obtain the helicity power. 
 All the power components are roll-invariant, non-negative and unambiguous.
 
 ## Function flowchart
 
 <p align="center">
-  <img src="flow_chart_MF4CF.png" alt="Opening the plugin"/>
+  <img src="flow_chart_MF4CF.png" alt="Mf4CF algorithm"/>
 </p>
 
 ## Algorithm
