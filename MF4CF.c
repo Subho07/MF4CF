@@ -146,10 +146,46 @@ void hwrite(char * bfn, size_t nrow, size_t ncol, size_t nband){
   fclose(f);
 }
 
+void filter(float * t, float * t_f, int nrow, int ncol, int wsi){
+  int i, j, k, di, dj, dw, x, ix, ii, jj;
+  dw = (wsi - 1) / 2;
+  double dat, n;
+  float d;
+
+  for0(i, nrow){
+    for0(j, ncol){
+      n = dat = 0; /* denominator, result */
+      x = i * ncol + j; /* write index */
+
+      for(di = - dw; di <= dw; di++){
+        ii = i + di;
+
+        if(ii >= 0 && ii < nrow){
+          ix = ii * ncol;
+
+          for(dj = - dw; dj <= dw; dj++){
+            jj = j + dj;
+            d = t[ix + jj];
+
+            if(jj > 0 && jj < ncol && (!(isinf(d) || isnan(d)))){
+              dat += (double)d;
+              n++;
+            }
+          }
+        }
+      }
+      t_f[x] = n > 0 ? (float)(dat / ((double)n)): 0.; /* average */
+    }
+  }
+}
+
 int main(int argc, char ** argv){
 
-  if(argc < 2) err("M4FC.exe [input T3 directory]");
+  if(argc < 3) err("M4FC.exe [input T3 directory] [window size]");
   char * path = argv[1]; /* T3 matrix data path */
+  int wsi = atoi(argv[2]); /* window size parameter */
+  if(wsi %2 != 1) err("window size must be odd number");
+
   int i, j, k, np, nrow, ncol, di, dj, ii, jj, x, ix, jx, nw;
 
   char fn[STR_MAX];
@@ -171,23 +207,27 @@ int main(int argc, char ** argv){
     T[k] = read(fn, np); /* read each input data band */
   }
 
+  T_f = (float **) alloc(sizeof(float *) * N_IN); /* filtered bands buffers */
+  for0(k, N_IN) T_f[k] = falloc(np);  /* allocate space for filtered bands */
+
   out_d = (float **) alloc(sizeof(float *) * N_OUT); /* output bands buffers */
   for0(i, N_OUT) out_d[i] = falloc(np); /* allocate output space */
+  for0(k, N_IN) filter(T[k], T_f[k], nrow, ncol, wsi); /* filter */
 
   double t11, t12_r, t12_i, t13_r, t13_i, t22, t23_r, t23_i, t33; /* intermediary variables */
   double det_im, det_re, trace, trace3, m1_re, m1_im, r, theta, m1;
   float * out_d_theta_f, * out_d_tau_f, * out_d_pc_f, * out_d_pv_f, * out_d_ps_f, * out_d_pd_f;
   double k11_f, k44_f, k14_f, s0_f, dop_f, val1, val2, theta_f, tau_f, pc_f, pv_f, res_pow, ps_f, pd_f;
 
-  float * t11_p = T[T11];
-  float * t12_r_p = T[T12_re];
-  float * t12_i_p = T[T12_im];
-  float * t13_r_p = T[T13_re];
-  float * t13_i_p = T[T13_im];
-  float * t22_p = T[T22];
-  float * t23_r_p = T[T23_re];
-  float * t23_i_p = T[T23_im];
-  float * t33_p = T[T33];
+  float * t11_p = T_f[T11];
+  float * t12_r_p = T_f[T12_re];
+  float * t12_i_p = T_f[T12_im];
+  float * t13_r_p = T_f[T13_re];
+  float * t13_i_p = T_f[T13_im];
+  float * t22_p = T_f[T22];
+  float * t23_r_p = T_f[T23_re];
+  float * t23_i_p = T_f[T23_im];
+  float * t33_p = T_f[T33];
 
   out_d_theta_f = out_d[_theta_f];
   out_d_tau_f = out_d[_tau_f];
