@@ -3,7 +3,7 @@ A Model-free Four Component Scattering Power Decomposition for Polarimetric SAR 
 
 To compile and run, e.g.:
    gcc MF4CF.c -o MF4CF.exe -lm
-   ./MF4CF.exe T3 
+   ./MF4CF.exe T3 3 # for analysis window size 3
 
 C impl. 20210421 by Ash Richardson, Senior Data Scientist, BC Wildfire Service */
 #include<math.h>
