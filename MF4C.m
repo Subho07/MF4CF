@@ -132,7 +132,7 @@ for ii = startj:stopj
 
         dop_f = real(sqrt(1-(27*(det(T)./(trace(T).^3)))));
         dop_val_f(ii,jj) = dop_f;
-
+        
         k11_f = (t11s + t22s + t33s)/2;
         k44_f = (-t11s + t22s + t33s)/2;
         k14_f = imag(t23s);
